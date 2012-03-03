@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>likamagnet</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript">
+$$(document).ready(function(){
+    $$("a.wtf").click(function(){
+        $$("p.about").slideToggle("slow");
+    });
+    $$('.theone').submit(function() {
+  		$$('.result').load("/-?url="+$$('.url').val());
+  		return false;
+  	});
+});
+</script>
+<style type="text/css">
+body {width:600px; margin:150px auto; text-align:center; }
+a {text-decoration:none; }
+a.wtf {color: #00a500; font-size: 70%; }
+p.about {font-size: 12px; text-align:left; display:none; }
+i.onemorething {color: #888;}
+input.url {width:420px; font-family: monospace; }
+img.loading {display: none; }
+a.colophon {color:#00a500; }
+</style>
+</head>
+<body>
+<h1>likamagnet<sup><a class="wtf" href="#">?</a></sup></h1>
+<p class="about"><a href="http://ru.wikipedia.org/wiki/Magnet-ссылка">Magnet-ссылки</a> — самый быстрый способ поделиться торрентом (или другим P2P с поддержкой magnet). Но они слишком длинные и незапоминаемые (ЧПУ до них ещё не дошли). Да и твиттер не понимает, что это именно <i>ссылки</i> <br /><br />
+Схема получения заветного magnet для укорачивания: <b>Правый клик на желаемый торрент → "Копировать Magnet-URI"</b> (точно есть в <a href="http://utorrent.com">uTorrent</a> и <a href="http://transmissionbt.com">Transmission</a>). Или просто копируйте его с The Pirate Bay, если ваш торрент оттуда <br /><br />
+На выходе получите аккуратненькую ссылкочку с постоянным (пока мне не надоест оплачивать домен) редиректом на магнэт без упоминания трекеров. Да здравствует <a href="http://ru.wikipedia.org/wiki/DHT">DHT</a>! <br /><br />
+<i class="onemorething">Ах да, у нас есть ещё как-бы-API: <u>http://42ia.com/-?url=[magnet]</u>. А для как-бы-статистики припишите к короткой ссылке плюсик</i><br />
+<i class="onemorething">Для олдфагов. Архив тексткаста доступен на <a href="http://old.42ia.com">http://old.42ia.com</a></i></p>
+<form action="/-" method="get" class="theone">
+<p><label><b>got magnet?</b> <input type="text" name="url" class="url"></label> <input type="submit" value="shrink it"></p></form>
+<div class="result"></div><br />
+<i><a href='http://twitter.com/zemlanin' class="colophon" rel="me">@zemlanin</a></i>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1808546-6']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body></html>
