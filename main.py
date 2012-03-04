@@ -10,8 +10,10 @@ app = web.application(urls, globals(), autoreload=True)
 db = web.database(dbn='sqlite', db='likamag.db')
 render = web.template.render('tpl/')
 
+site = "http://example.com/"
+
 class magic:
-    codeset = 'omyg5diws4hzelanfuck72bj0xvqyrOMYGDRW6SHZ3ELANIF81UCKPBJX9VQY'
+    codeset = 'omyg5dNIF81Uiws4hzeKPBJX9lack72bj0xvqyrOMYGDRW6SHZnfu3ELACVQY'
     base = len(codeset)
     def to(self, id):
         encoded = ''
@@ -51,9 +53,9 @@ class api:
         xt = dct['xt']
         if xt and not self.check(xt):
             i = db.insert('links', url = xt, clx = 0)
-            return 'http://42ia.com/'+magic().to(int(i))
+            return site+magic().to(int(i))
         elif xt and self.check(xt):
-            return 'http://42ia.com/'+magic().to(int(self.check(xt)[0].id))
+            return site+magic().to(int(self.check(xt)[0].id))
         else:
             return 'error'
             
@@ -76,11 +78,11 @@ class stats:
         if not r:
             return web.seeother('/')
         else:
-            return """http://42ia.com/%s 
+            return """%s%s 
             
 %s
 
-%s""" % (code, r[0].url, r[0].clx)
+%s""" % (site, code, r[0].url, r[0].clx)
             
 if __name__ == "__main__":
     app.run()
